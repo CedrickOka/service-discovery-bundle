@@ -1,5 +1,5 @@
-OkaPaginationBundle
-====================
+OkaServiceDiscoveryBundle
+=========================
 
 This bundle provides a implementon of Client Side Service Discovery pattern.
 
