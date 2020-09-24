@@ -2,7 +2,7 @@
 	"name" : "coka/service-discovery-bundle",
 	"type" : "symfony-bundle",
 	"description" : "Symfony bundle that implement Client Side Service Discovery pattern.",
-	"homepage" : "https://github.com/CedrickOka/pagination-bundle",
+	"homepage" : "https://github.com/CedrickOka/service-discovery-bundle",
 	"license" : "MIT",
 	"keywords" : [
 		"service",
