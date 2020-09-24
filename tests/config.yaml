@@ -1,0 +1,41 @@
+framework:
+    test: true
+    secret: 'secret'
+    default_locale: 'fr'
+    session:
+        storage_id: session.storage.mock_file
+    php_errors:
+        log: true
+
+    cache:
+        # Put the unique name of your app here: the prefix seed
+        # is used to compute stable namespaces for cache keys.
+        #prefix_seed: your_vendor_name/app_name
+
+        # The app cache caches to the filesystem by default.
+        # Other options include:
+
+        # Redis
+        #app: cache.adapter.redis
+        #default_redis_provider: redis://localhost
+
+        # APCu (not recommended with heavy random-write workloads as memory fragmentation can cause perf issues)
+        #app: cache.adapter.apcu
+
+oka_service_discovery:
+    cache_id: cache.app
+    load_balancing_algorithm: 'round-robin'
+    dsn: 'php://array'
+    options:
+        # Put the options of catalog
+        services:
+          localhost:
+            - scheme: 'http'
+              host: 127.0.0.1
+              port: 80
+            - scheme: 'http'
+              host: 127.0.0.1
+              port: 8080
+            - scheme: 'https'
+              host: 127.0.0.1
+              port: 443

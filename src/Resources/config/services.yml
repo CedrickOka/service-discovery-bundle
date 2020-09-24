@@ -1,0 +1,27 @@
+services:
+    Oka\ServiceDiscoveryBundle\LoadBalancer\Algorithm\:
+        resource: '../../LoadBalancer/Algorithm/*'
+        tags:
+          - {name: oka_service_discovery.load_balancer_algorithm}
+
+    oka_service_discovery.php_array_catalog_handler_factory:
+        class: Oka\ServiceDiscoveryBundle\Catalog\Handler\PhpArray\PhpArrayHandlerFactory
+        tags:
+          - {name: oka_service_discovery.catalog_handler_factory}
+
+    oka_service_discovery.consul_catalog_handler_factory:
+        class: Oka\ServiceDiscoveryBundle\Catalog\Handler\Consul\ConsulHandlerFactory
+        arguments: ['@?logger']
+        tags:
+          - {name: oka_service_discovery.catalog_handler_factory}
+
+    oka_service_discovery.service_load_balancer:
+        class: Oka\ServiceDiscoveryBundle\LoadBalancer\ServiceLoadBalancer
+
+    oka_service_discovery.catalog:
+        public: true
+        class: Oka\ServiceDiscoveryBundle\Catalog\Catalog
+        arguments: ['@oka_service_discovery.service_load_balancer', '', '', '', []]
+        
+    Oka\ServiceDiscoveryBundle\LoadBalancer\ServiceLoadBalancer: '@oka_service_discovery.service_load_balancer'
+    Oka\ServiceDiscoveryBundle\Catalog\Catalog: '@oka_service_discovery.catalog'
