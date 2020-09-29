@@ -43,11 +43,11 @@ class Service
 	
 	public function getUrl() :string
 	{
-		return $this->__toString();
+		return sprintf('%s://%s:%s', $this->scheme, $this->host, $this->port);
 	}
 	
 	public function __toString()
 	{
-		return sprintf('%s://%s:%s', $this->scheme, $this->host, $this->port);
+		return $this->getUrl();
 	}
 }

@@ -18,12 +18,12 @@ class Configuration implements ConfigurationInterface
 		$rootNode = $treeBuilder->getRootNode();
 		
 		$rootNode
-			->beforeNormalization()
-				->ifString()
-				->then(function (string $dsn) {
-					return ['dsn' => $dsn];
-				})
-			->end()
+// 			->beforeNormalization()
+// 				->ifString()
+// 				->then(function (string $dsn) {
+// 					return ['dsn' => $dsn];
+// 				})
+// 			->end()
 			->fixXmlConfig('option')
 			->addDefaultsIfNotSet()
 			->children()
@@ -35,6 +35,7 @@ class Configuration implements ConfigurationInterface
 				->end()
 				->scalarNode('dsn')->defaultNull()->end()
 				->arrayNode('options')
+					->performNoDeepMerging()
 					->normalizeKeys(false)
 					->treatNullLike([])
 					->defaultValue([])
