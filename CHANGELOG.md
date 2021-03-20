@@ -4,6 +4,7 @@ CHANGELOG
 #### 1.2.0 (2021-03-20)
 
 * Added Catalog::getServices() method.
+* Updated composer.json for support version `3` and `4` of `sensiolabs/consul-php-sdk` library.
 
 #### 1.1.1 (2020-10-01)
 
