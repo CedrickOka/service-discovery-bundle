@@ -1,7 +1,6 @@
 <?php
 namespace Oka\ServiceDiscoveryBundle\Catalog\Handler\Consul;
 
-use GuzzleHttp\Psr7\Uri;
 use Oka\ServiceDiscoveryBundle\Catalog\Handler\CatalogHandlerFactoryInterface;
 use Oka\ServiceDiscoveryBundle\Catalog\Handler\CatalogHandlerInterface;
 use Psr\Log\LoggerInterface;
@@ -39,11 +38,11 @@ class ConsulHandlerFactory implements CatalogHandlerFactoryInterface
 		// consul(-tls)?://... => http(s)?://... or else the URL will be invalid
 		$dsn = preg_replace('#^consul(-tl(s))?:\/\/(.+)#i', 'http$2://$3', $dsn);
 		
-		if (false === ($parsedUrl = parse_url($dsn))) {
+		if (false === parse_url($dsn) ) {
 			throw new \InvalidArgumentException(sprintf('The given Consul Catalog DSN "%s" is invalid.', $dsn));
 		}
 		
-		$serviceFactory = new ServiceFactory(array_merge($options, ['base_uri' => (string) Uri::fromParts($parsedUrl)]), $this->logger);
+		$serviceFactory = new ServiceFactory(array_merge($options, ['base_uri' => $dsn]), $this->logger);
 		
 		return new ConsulHandler($serviceFactory->get(CatalogInterface::class));
 	}

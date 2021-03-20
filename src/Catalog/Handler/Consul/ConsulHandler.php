@@ -21,27 +21,60 @@ class ConsulHandler implements CatalogHandlerInterface
 		$this->catalog = $catalog;
 	}
 	
+	public function getServices(): iterable
+	{
+		$response = $this->catalog->services();
+		$catalog = json_decode($response->getBody(), true);
+		
+		if (false === is_array($catalog)) {
+			throw new ServiceNotFoundException('You have requested a non-existent catalog.');
+		}
+		
+		foreach ($catalog as $key => $services) {
+			$collection = $this->createCollection($services);
+			$services[$key] = $collection;
+		}
+		
+		return $catalog;
+	}
+	
 	public function getService(string $service): ServiceCollection
 	{
 		/** @var \SensioLabs\Consul\ConsulResponse $response */
 		$response = $this->catalog->service($service);
 		$services = json_decode($response->getBody(), true);
 		
-		if (true === is_array($services)) {
-			$serviceCollection = new ServiceCollection();
-			
-			foreach ($services as $service) {
-				if (false === isset($service['ServiceAddress']) && false === isset($service['ServicePort'])) {
-					continue;
-				}
-				
-				$meta = $service['ServiceMeta'] ?? [];
-				$serviceCollection->add(new Service($service['ServiceAddress'], $service['ServicePort'], $meta['scheme'] ?? 'http', $meta['weight'] ?? 1));
-			}
-			
-			return $serviceCollection;
+		if (false === is_array($services)) {
+			throw new ServiceNotFoundException(sprintf('You have requested a non-existent service "%s".', $service));
 		}
 		
-		throw new ServiceNotFoundException(sprintf('You have requested a non-existent service "%s".', $service));
+		$serviceCollection = new ServiceCollection();
+		
+		foreach ($services as $service) {
+			if (false === isset($service['ServiceAddress']) && false === isset($service['ServicePort'])) {
+				continue;
+			}
+			
+			$meta = $service['ServiceMeta'] ?? [];
+			$serviceCollection->add(new Service($service['ServiceAddress'], $service['ServicePort'], $meta['scheme'] ?? 'http', $meta['weight'] ?? 1));
+		}
+		
+		return $serviceCollection;
+	}
+	
+	private function createCollection(array $services): ServiceCollection
+	{
+		$serviceCollection = new ServiceCollection();
+		
+		foreach ($services as $service) {
+			if (false === isset($service['ServiceAddress']) && false === isset($service['ServicePort'])) {
+				continue;
+			}
+			
+			$meta = $service['ServiceMeta'] ?? [];
+			$serviceCollection->add(new Service($service['ServiceAddress'], $service['ServicePort'], $meta['scheme'] ?? 'http', $meta['weight'] ?? 1));
+		}
+		
+		return $serviceCollection;
 	}
 }

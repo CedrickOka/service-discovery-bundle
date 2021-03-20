@@ -29,16 +29,16 @@
 	},
 	"require" : {
 		"php" : ">=7.2",
-		"sensiolabs/consul-php-sdk" : "^3.1",
-		"symfony/cache" : "^4.4",
-		"symfony/config" : "^4.4",
-		"symfony/dependency-injection" : "^4.4",
-		"symfony/http-kernel" : "^4.4"
+		"sensiolabs/consul-php-sdk" : "^3.0 || ^4.0",
+		"symfony/cache" : "^4.4 || ^5.0",
+		"symfony/config" : "^4.4 || ^5.0",
+		"symfony/dependency-injection" : "^4.4 || ^5.0",
+		"symfony/http-kernel" : "^4.4 || ^5.0"
 	},
 	"require-dev" : {
-		"symfony/framework-bundle" : "^4.4",
-		"symfony/phpunit-bridge" : "^4.4",
-		"symfony/yaml" : "^4.4"
+		"symfony/framework-bundle" : "^4.4 || ^5.0",
+		"symfony/phpunit-bridge" : "^4.4 || ^5.0",
+		"symfony/yaml" : "^4.4 || ^5.0"
 	},
 	"config" : {
 		"sort-packages" : true

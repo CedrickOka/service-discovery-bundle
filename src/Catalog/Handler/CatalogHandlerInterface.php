@@ -10,5 +10,10 @@ use Oka\ServiceDiscoveryBundle\Catalog\ServiceCollection;
  */
 interface CatalogHandlerInterface
 {
-	public function getService(string $service) :ServiceCollection;
+	/**
+	 * @return ServiceCollection[]
+	 */
+	public function getServices(): iterable;
+	
+	public function getService(string $service): ServiceCollection;
 }

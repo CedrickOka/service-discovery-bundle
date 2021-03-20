@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+#### 1.2.0 (2021-03-20)
+
+* Added Catalog::getServices() method.
+
 #### 1.1.1 (2020-10-01)
 
 * Normalize configuration values before validation.

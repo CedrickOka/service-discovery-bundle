@@ -3,7 +3,6 @@ namespace Oka\ServiceDiscoveryBundle\Tests\Catalog\Handler\PhpArray;
 
 use Oka\ServiceDiscoveryBundle\Catalog\Service;
 use Oka\ServiceDiscoveryBundle\Catalog\ServiceCollection;
-use Oka\ServiceDiscoveryBundle\Catalog\Handler\CatalogHandlerInterface;
 use Oka\ServiceDiscoveryBundle\Catalog\Handler\PhpArray\PhpArrayHandler;
 use PHPUnit\Framework\TestCase;
 
@@ -16,7 +15,7 @@ class PhpArrayHandlerTest extends TestCase
 	{
 		$handler = $this->getHandler();
 		
-		$this->assertInstanceOf(CatalogHandlerInterface::class, $handler);
+		$this->assertInstanceOf(PhpArrayHandler::class, $handler);
 	}
 	
 	/**

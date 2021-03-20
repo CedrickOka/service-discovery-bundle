@@ -19,6 +19,11 @@ class PhpArrayHandler implements CatalogHandlerInterface
 		$this->serviceCollectionMap = $serviceCollectionMap;
 	}
 	
+	public function getServices(): iterable
+	{
+		return $this->serviceCollectionMap;
+	}
+	
 	public function getService(string $service): ServiceCollection
 	{
 		if (false === isset($this->serviceCollectionMap[$service])) {

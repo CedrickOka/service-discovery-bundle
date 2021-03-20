@@ -1,11 +1,10 @@
 <?php
 namespace Oka\ServiceDiscoveryBundle\Tests\Catalog\Handler\Consul;
 
-use Oka\ServiceDiscoveryBundle\Catalog\Handler\CatalogHandlerInterface;
 use Oka\ServiceDiscoveryBundle\Catalog\Handler\Consul\ConsulHandler;
 use PHPUnit\Framework\TestCase;
-use SensioLabs\Consul\Services\CatalogInterface;
 use SensioLabs\Consul\ConsulResponse;
+use SensioLabs\Consul\Services\CatalogInterface;
 
 class ConsulHandlerTest extends TestCase
 {
@@ -16,7 +15,7 @@ class ConsulHandlerTest extends TestCase
 	{
 		$handler = $this->getHandler();
 		
-		$this->assertInstanceOf(CatalogHandlerInterface::class, $handler);
+		$this->assertInstanceOf(ConsulHandler::class, $handler);
 	}
 	
 	/**

@@ -1,5 +1,5 @@
 <?php
-namespace Oka\ServiceDiscoveryBundle\Tests;
+namespace Oka\ServiceDiscoveryBundle\Test;
 
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpKernel\Kernel;

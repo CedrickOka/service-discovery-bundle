@@ -1,10 +1,11 @@
 <?php
 namespace Oka\ServiceDiscoveryBundle\Catalog;
 
+use Oka\ServiceDiscoveryBundle\Catalog\Handler\CatalogHandlerFactoryInterface;
+use Oka\ServiceDiscoveryBundle\Catalog\Handler\CatalogHandlerInterface;
 use Oka\ServiceDiscoveryBundle\Exception\CatalogHandlerFactoryNotFoundException;
 use Oka\ServiceDiscoveryBundle\LoadBalancer\ServiceLoadBalancer;
 use Psr\Cache\CacheItemPoolInterface;
-use Oka\ServiceDiscoveryBundle\Catalog\Handler\CatalogHandlerFactoryInterface;
 
 /**
  *
@@ -35,16 +36,12 @@ class Catalog
 		$this->factories = $factories;
 	}
 	
-	public function addHandlerFactory(CatalogHandlerFactoryInterface $factory) :void
+	public function addHandlerFactory(CatalogHandlerFactoryInterface $factory): void
 	{
 		$this->factories[] = $factory;
 	}
 	
-	/**
-	 * @throws \Oka\ServiceDiscoveryBundle\Exception\ServiceNotFoundException
-	 * @throws \Oka\ServiceDiscoveryBundle\Exception\CatalogHandlerFactoryNotFoundException
-	 */
-	public function getService(string $serviceName) :Service
+	public function getServices(): iterable
 	{
 		/** @var \Oka\ServiceDiscoveryBundle\Catalog\Handler\CatalogHandlerFactoryInterface $factory */
 		foreach ($this->factories as $factory) {
@@ -52,15 +49,25 @@ class Catalog
 				continue;
 			}
 			
-			$factoryClassName = get_class($factory);
-			
-			/** @var \Oka\ServiceDiscoveryBundle\Catalog\Handler\CatalogHandlerInterface $handler */
-			if (!$handler = $this->cachedHandlers[$factoryClassName] ?? null) {
-				$handler = $factory->createHandler($this->dsn, $this->options);
-				$this->cachedHandlers[$factoryClassName] = $handler;
+			return $this->createHandler($factory)->getServices();
+		}
+		
+		throw new CatalogHandlerFactoryNotFoundException(sprintf('No Catalog handler factory was found for DSN "%s"', $this->dsn));
+	}
+	
+	/**
+	 * @throws \Oka\ServiceDiscoveryBundle\Exception\ServiceNotFoundException
+	 * @throws \Oka\ServiceDiscoveryBundle\Exception\CatalogHandlerFactoryNotFoundException
+	 */
+	public function getService(string $serviceName): Service
+	{
+		/** @var \Oka\ServiceDiscoveryBundle\Catalog\Handler\CatalogHandlerFactoryInterface $factory */
+		foreach ($this->factories as $factory) {
+			if (false === $factory->supports($this->dsn, $this->options)) {
+				continue;
 			}
 			
-			$collection = $handler->getService($serviceName);
+			$collection = $this->createHandler($factory)->getService($serviceName);
 			$lastService = $this->cachePool->getItem(sprintf('oka_service_discovery.last_provided_service.%s', $serviceName));
 			$service = $this->loadBalancer->execute($this->loadBalancingAlgorithm, $collection, $lastService->get());
 			
@@ -71,5 +78,18 @@ class Catalog
 		}
 		
 		throw new CatalogHandlerFactoryNotFoundException(sprintf('No Catalog handler factory was found for DSN "%s"', $this->dsn));
+	}
+	
+	private function createHandler(CatalogHandlerFactoryInterface $factory): CatalogHandlerInterface
+	{
+		$factoryClassName = get_class($factory);
+		
+		/** @var \Oka\ServiceDiscoveryBundle\Catalog\Handler\CatalogHandlerInterface $handler */
+		if (!$handler = $this->cachedHandlers[$factoryClassName] ?? null) {
+			$handler = $factory->createHandler($this->dsn, $this->options);
+			$this->cachedHandlers[$factoryClassName] = $handler;
+		}
+		
+		return $handler;
 	}
 }
