@@ -3,13 +3,13 @@ OkaServiceDiscoveryBundle
 
 This bundle provides a implementon of Client Side Service Discovery pattern.
 
-[![Latest Stable Version](https://poser.pugx.org/coka/service-discovery/v/stable)](https://packagist.org/packages/coka/service-discovery)
-[![Total Downloads](https://poser.pugx.org/coka/service-discovery/downloads)](https://packagist.org/packages/coka/service-discovery)
-[![Latest Unstable Version](https://poser.pugx.org/coka/service-discovery/v/unstable)](https://packagist.org/packages/coka/service-discovery)
-[![License](https://poser.pugx.org/coka/service-discovery/license)](https://packagist.org/packages/coka/service-discovery)
-[![Monthly Downloads](https://poser.pugx.org/coka/service-discovery/d/monthly)](https://packagist.org/packages/coka/service-discovery)
-[![Daily Downloads](https://poser.pugx.org/coka/service-discovery/d/daily)](https://packagist.org/packages/coka/service-discovery)
-[![Travis CI](https://travis-ci.org/CedrickOka/service-discovery.svg?branch=master)](https://travis-ci.org/CedrickOka/service-discovery)
+[![Latest Stable Version](https://poser.pugx.org/coka/service-discovery-bundle/v/stable)](https://packagist.org/packages/coka/service-discovery-bundle)
+[![Total Downloads](https://poser.pugx.org/coka/service-discovery-bundle/downloads)](https://packagist.org/packages/coka/service-discovery-bundle)
+[![Latest Unstable Version](https://poser.pugx.org/coka/service-discovery-bundle/v/unstable)](https://packagist.org/packages/coka/service-discovery-bundle)
+[![License](https://poser.pugx.org/coka/service-discovery-bundle/license)](https://packagist.org/packages/coka/service-discovery-bundle)
+[![Monthly Downloads](https://poser.pugx.org/coka/service-discovery-bundle/d/monthly)](https://packagist.org/packages/coka/service-discovery-bundle)
+[![Daily Downloads](https://poser.pugx.org/coka/service-discovery-bundle/d/daily)](https://packagist.org/packages/coka/service-discovery-bundle)
+[![Travis CI](https://travis-ci.org/CedrickOka/service-discovery-bundle.svg?branch=master)](https://travis-ci.org/CedrickOka/service-discovery-bundle)
 
 Latest updates
 --------------
