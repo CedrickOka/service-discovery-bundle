@@ -2,9 +2,7 @@
 namespace Oka\ServiceDiscoveryBundle\Catalog;
 
 /**
- *
  * @author Cedrick Oka Baidai <okacedrick@gmail.com>
- *
  */
 class ServiceCollection implements \IteratorAggregate
 {

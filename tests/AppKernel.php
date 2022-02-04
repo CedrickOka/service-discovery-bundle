@@ -1,13 +1,11 @@
 <?php
-namespace Oka\ServiceDiscoveryBundle\Test;
+namespace Oka\ServiceDiscoveryBundle\Tests;
 
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpKernel\Kernel;
 
 /**
- *
- * @author Cedrick Oka Baidai <baidai.cedric@veone.net>
- *
+ * @author Cedrick Oka Baidai <okacedrick@gmail.com>
  */
 class AppKernel extends Kernel
 {

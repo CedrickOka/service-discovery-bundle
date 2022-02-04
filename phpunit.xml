@@ -6,7 +6,7 @@
     </include>
   </coverage>
   <php>
-    <env name="KERNEL_CLASS" value="Oka\ServiceDiscoveryBundle\Test\AppKernel"/>
+    <env name="KERNEL_CLASS" value="Oka\ServiceDiscoveryBundle\Tests\AppKernel"/>
   </php>
   <testsuites>
     <testsuite name="default">

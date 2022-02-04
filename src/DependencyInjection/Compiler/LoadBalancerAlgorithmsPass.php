@@ -6,9 +6,7 @@ use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 
 /**
- *
  * @author Cedrick Oka Baidai <okacedrick@gmail.com>
- *
  */
 class LoadBalancerAlgorithmsPass implements CompilerPassInterface
 {	

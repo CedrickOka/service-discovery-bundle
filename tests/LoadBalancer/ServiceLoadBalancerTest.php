@@ -6,9 +6,7 @@ use Oka\ServiceDiscoveryBundle\Catalog\ServiceCollection;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 /**
- *
  * @author Cedrick Oka Baidai <okacedrick@gmail.com>
- *
  */
 class ServiceLoadBalancerTest extends KernelTestCase
 {

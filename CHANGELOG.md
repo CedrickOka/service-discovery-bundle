@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+#### 1.4.0 (2022-04-02)
+
+* Updated bundle directory structure.
+
 #### 1.2.0 (2021-03-20)
 
 * Added Catalog::getServices() method.

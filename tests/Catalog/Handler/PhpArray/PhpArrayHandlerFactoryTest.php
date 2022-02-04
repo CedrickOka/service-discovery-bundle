@@ -7,6 +7,9 @@ use Oka\ServiceDiscoveryBundle\Catalog\Handler\PhpArray\PhpArrayHandler;
 use Oka\ServiceDiscoveryBundle\Catalog\Handler\PhpArray\PhpArrayHandlerFactory;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @author Cedrick Oka Baidai <okacedrick@gmail.com>
+ */
 class PhpArrayHandlerFactoryTest extends TestCase
 {
 	/**

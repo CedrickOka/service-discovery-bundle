@@ -5,9 +5,7 @@ use Oka\ServiceDiscoveryBundle\Catalog\Service;
 use Oka\ServiceDiscoveryBundle\Catalog\ServiceCollection;
 
 /**
- *
  * @author Cedrick Oka Baidai <baidai.cedric@veone.net>
- *
  */
 class RandomAlgorithm implements LoadBalancerAlgorithmInterface
 {

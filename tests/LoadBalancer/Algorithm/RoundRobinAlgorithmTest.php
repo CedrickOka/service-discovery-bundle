@@ -7,9 +7,7 @@ use Oka\ServiceDiscoveryBundle\LoadBalancer\Algorithm\RoundRobinAlgorithm;
 use PHPUnit\Framework\TestCase;
 
 /**
- *
  * @author Cedrick Oka Baidai <okacedrick@gmail.com>
- *
  */
 class RoundRobinAlgorithmTest extends TestCase
 {

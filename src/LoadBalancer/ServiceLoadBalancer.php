@@ -7,9 +7,7 @@ use Oka\ServiceDiscoveryBundle\Exception\LoadBalancerAlgorithmNotFoundException;
 use Oka\ServiceDiscoveryBundle\LoadBalancer\Algorithm\LoadBalancerAlgorithmInterface;
 
 /**
- *
  * @author Cedrick Oka Baidai <okacedrick@gmail.com>
- *
  */
 class ServiceLoadBalancer
 {

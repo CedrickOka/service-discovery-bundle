@@ -6,6 +6,9 @@ use Oka\ServiceDiscoveryBundle\Catalog\ServiceCollection;
 use Oka\ServiceDiscoveryBundle\Catalog\Handler\PhpArray\PhpArrayHandler;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @author Cedrick Oka Baidai <okacedrick@gmail.com>
+ */
 class PhpArrayHandlerTest extends TestCase
 {
 	/**

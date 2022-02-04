@@ -6,6 +6,9 @@ use PHPUnit\Framework\TestCase;
 use SensioLabs\Consul\ConsulResponse;
 use SensioLabs\Consul\Services\CatalogInterface;
 
+/**
+ * @author Cedrick Oka Baidai <okacedrick@gmail.com>
+ */
 class ConsulHandlerTest extends TestCase
 {
 	/**

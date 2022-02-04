@@ -1,6 +1,6 @@
 services:
     Oka\ServiceDiscoveryBundle\LoadBalancer\Algorithm\:
-        resource: '../../LoadBalancer/Algorithm/*'
+        resource: '../src/LoadBalancer/Algorithm/*'
         tags:
           - {name: oka_service_discovery.load_balancer_algorithm}
 

@@ -9,9 +9,7 @@ use Symfony\Component\DependencyInjection\Loader;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 
 /**
- *
  * @author Cedrick Oka Baidai <okacedrick@gmail.com>
- *
  */
 class OkaServiceDiscoveryExtension extends Extension
 {
@@ -31,7 +29,7 @@ class OkaServiceDiscoveryExtension extends Extension
 		$configuration = new Configuration();
 		$config = $this->processConfiguration($configuration, $configs);
 		
-		$loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+		$loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../../config'));
 		$loader->load('services.yml');
 		
 		$container->setParameter('oka_service_discovery.cache_id', $config['cache_id']);

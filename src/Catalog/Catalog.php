@@ -8,9 +8,7 @@ use Oka\ServiceDiscoveryBundle\LoadBalancer\ServiceLoadBalancer;
 use Psr\Cache\CacheItemPoolInterface;
 
 /**
- *
  * @author Cedrick Oka Baidai <okacedrick@gmail.com>
- *
  */
 class Catalog
 {

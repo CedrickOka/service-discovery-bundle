@@ -5,6 +5,9 @@ use Oka\ServiceDiscoveryBundle\Catalog\Handler\Consul\ConsulHandler;
 use Oka\ServiceDiscoveryBundle\Catalog\Handler\Consul\ConsulHandlerFactory;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @author Cedrick Oka Baidai <okacedrick@gmail.com>
+ */
 class ConsulHandlerFactoryTest extends TestCase
 {
 	/**
