@@ -97,7 +97,7 @@ class ServiceCollection implements \IteratorAggregate
 		return array_reduce($this->services, $callback, $initial);
 	}
 	
-	public function getIterator()
+	public function getIterator(): \Traversable
 	{
 		return new \ArrayIterator($this->services);
 	}
