@@ -41,4 +41,3 @@ class OkaServiceDiscoveryExtension extends Extension
 		$definition->replaceArgument(4, $config['options']);
 	}
 }
-
