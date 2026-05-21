@@ -20,7 +20,7 @@ class RandomAlgorithm implements LoadBalancerAlgorithmInterface
         if (null !== $lastService) {
             $collection = $collection->filter(function (Service $value) use ($lastService) {
                 return $value->getUrl() !== $lastService->getUrl();
-            });
+            }, 0);
         }
 
         $randomIndex = rand(0, $collection->count() - 1);
