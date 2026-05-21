@@ -1,4 +1,5 @@
 <?php
+
 namespace Oka\ServiceDiscoveryBundle;
 
 use Oka\ServiceDiscoveryBundle\DependencyInjection\Compiler\CachePoolServicePass;
@@ -17,14 +18,14 @@ class OkaServiceDiscoveryBundle extends Bundle
     {
         return \dirname(__DIR__);
     }
-    
-	public function build(ContainerBuilder $container)
-	{
-		parent::build($container);
-		
-		$container->addCompilerPass(new LoggerServicePass());
-		$container->addCompilerPass(new CachePoolServicePass());
-		$container->addCompilerPass(new LoadBalancerAlgorithmsPass());
-		$container->addCompilerPass(new CatalogHandlerFactoriesPass());
-	}
+
+    public function build(ContainerBuilder $container): void
+    {
+        parent::build($container);
+
+        $container->addCompilerPass(new LoggerServicePass());
+        $container->addCompilerPass(new CachePoolServicePass());
+        $container->addCompilerPass(new LoadBalancerAlgorithmsPass());
+        $container->addCompilerPass(new CatalogHandlerFactoriesPass());
+    }
 }

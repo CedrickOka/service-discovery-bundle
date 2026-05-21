@@ -16,8 +16,20 @@
 		</include>
 	</coverage>
 
+	<!--
+	<extensions>
+		<extension class="DG\BypassFinals\PHPUnitExtension">
+			<arguments>
+				<boolean>true</boolean>
+				<boolean>false</boolean>
+				<string>./var/cache</string>
+			</arguments>
+		</extension>
+	</extensions>
+	-->
+
 	<php>
-    	<env name="KERNEL_CLASS" value="Oka\ServiceDiscoveryBundle\Tests\AppKernel"/>
+		<env name="KERNEL_CLASS" value="Oka\ServiceDiscoveryBundle\Tests\AppKernel"/>
 	</php>
 	
 	<testsuites>
