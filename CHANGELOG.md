@@ -1,6 +1,13 @@
 CHANGELOG
 =========
 
+#### 2.0.0 (2025-05-21)
+
+* Added support for Symfony `6.4` and `7.4`.
+* Removed support for Symfony `5.4`.
+* Replaced `sensiolabs/consul-php-sdk` by `friendsofphp/consul-php-sdk` in composer.json.
+* Configured github actions
+
 #### 1.4.0 (2022-04-02)
 
 * Updated bundle directory structure.
