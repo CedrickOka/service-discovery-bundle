@@ -66,6 +66,8 @@ jobs:
           composer update -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist;
 
     - name: Execute tests (Unit and Feature tests) via PHPUnit
+      env:
+        SYMFONY_DEPRECATIONS_HELPER: max[direct]=0
       run: ./vendor/bin/simple-phpunit -c phpunit.xml.dist --testdox --coverage-text --colors=never tests/
 
 #    #  To automatically get bug fixes and new Php versions for shivammathur/setup-php,
