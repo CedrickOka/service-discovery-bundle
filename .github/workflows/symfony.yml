@@ -42,6 +42,7 @@ jobs:
       uses: shivammathur/setup-php@2cb9b829437ee246e9b3cac53555a39208ca6d28
       with:
         php-version: ${{ matrix.php_version }}
+        tools: composer:v2.2
         coverage: none
         extensions: mbstring, intl, pdo
         ini-values: date.timezone=UTC
