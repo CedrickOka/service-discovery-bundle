@@ -4,9 +4,6 @@ framework:
     default_locale: 'fr'
     session:
         storage_factory_id: session.storage.factory.mock_file
-        cookie_secure: auto
-        cookie_samesite: lax
-        handler_id: null
     php_errors:
         log: true
 
@@ -24,8 +21,6 @@ framework:
 
         # APCu (not recommended with heavy random-write workloads as memory fragmentation can cause perf issues)
         #app: cache.adapter.apcu
-    http_method_override: false
-    handle_all_throwables: true
 
 oka_service_discovery:
     cache_id: cache.app
