@@ -29,16 +29,16 @@
     },
     "require" : {
         "php": ">=7.1",
-        "symfony/cache": "^4.4 || ^5.4 || ^6.4",
-        "symfony/config": "^4.4 || ^5.4 || ^6.4",
-        "symfony/dependency-injection": "^4.4 || ^5.4 || ^6.4",
-        "symfony/http-kernel": "^4.4 || ^5.4 || ^6.4"
+        "symfony/cache": "^5.4 || ^6.4 || ^7.4",
+        "symfony/config": "^5.4 || ^6.4 || ^7.4",
+        "symfony/dependency-injection": "^5.4 || ^6.4 || ^7.4",
+        "symfony/http-kernel": "^5.4 || ^6.4 || ^7.4"
     },
     "require-dev" : {
         "friendsofphp/consul-php-sdk": "^5.0",
-        "symfony/framework-bundle": "^4.4 || ^5.4 || ^6.4",
-        "symfony/phpunit-bridge": "^4.4 || ^5.4 || ^6.4",
-        "symfony/yaml": "^4.4 || ^5.4 || ^6.4"
+        "symfony/framework-bundle": "^5.4 || ^6.4 || ^7.4",
+        "symfony/phpunit-bridge": "^5.4 || ^6.4 || ^7.4",
+        "symfony/yaml": "^5.4 || ^6.4 || ^7.4"
     },
     "config" : {
         "sort-packages" : true

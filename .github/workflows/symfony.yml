@@ -20,9 +20,6 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - php_version: "7.1"
-            symfony_version: "4.4"
-            stability: "stable"
           - php_version: "7.2"
             symfony_version: "5.4"
             stability: "stable"
